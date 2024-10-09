@@ -1,0 +1,63 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('C:\Users\44784\OneDrive\Desktop\test\templates\photo-1533175069760-268143ce2e51.jpg.jpg'); /* Replace with the path to your image */
+    background-size: cover; /* Makes the image cover the entire background */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    margin: 0;
+    padding: 0;
+    margin: 0;
+            
+    height: 100vh;
+    color: rgb(87, 24, 24); /* Change text color for better contrast */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;  /* Keeps header at top, footer at bottom */
+    justify-content: center;  /* Horizontally center */
+    align-items: center;      /* Vertically center */
+    text-align: center;
+}
+.container {
+    text-align: top center;
+}
+
+h1 {
+    color: #b71d43;
+    margin: 0;
+    font-size: 3em;
+}
+footer {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+form {
+    background-color: rgba(135, 29, 29, 0.8); /* Slight transparency for better readability */
+    padding: 20px;
+    border: 1px solid #811414;
+    border-radius: 5px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: rgb(55, 5, 5);
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #781111;
+}

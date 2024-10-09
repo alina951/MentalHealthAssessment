@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Quiz</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container text-center">
+        <h1>Mental Health Quiz</h1>
+        <p>Please answer the following questions:</p>
+        <form action="/submit_quiz" method="post">
+            <!-- Overall Mood -->
+            <div class="mb-3">
+                <label for="overall_mood" class="form-label">How are you feeling today?</label>
+                <select class="form-select" id="overall_mood" name="overall_mood" required>
+                    <option value="good">Good</option>
+                    <option value="okay">Okay</option>
+                    <option value="bad">Bad</option>
+                </select>
+            </div>
+
+            <!-- Happiness Scale -->
+            <div class="mb-3">
+                <label for="happinessScale" class="form-label">Rate your happiness from 1 to 10:</label>
+                <input type="range" class="form-range" id="happinessScale" name="happinessScale" min="1" max="10" step="1" value="5" oninput="updateScaleValue(this.value, 'happinessScaleValue')">
+                <p class="text-center" id="happinessScaleValue">5</p>
+            </div>
+            <!-- Interest in Activities -->
+    <div class="mb-3">
+        <label for="interest" class="form-label">How much interest or pleasure have you experienced in activities you typically enjoy?</label>
+        <select class="form-select" id="interest" name="interest">
+            <option value="good">Good</option>
+            <option value="okay">Okay</option>
+            <option value="bad">Bad</option>
+        </select>
+        <input type="range" class="form-range" id="interestScale" name="interestScale" min="1" max="10" step="1" value="5" oninput="updateScaleValue(this.value, 'interestScaleValue')">
+        <p class="text-center" id="interestScaleValue">5</p>
+    </div>
+
+    <!-- Energy Levels -->
+    <div class="mb-3">
+        <label for="energy" class="form-label">How would you rate your energy levels throughout the day?</label>
+        <select class="form-select" id="energy" name="energy">
+            <option value="good">Good</option>
+            <option value="okay">Okay</option>
+            <option value="bad">Bad</option>
+        </select>
+        <input type="range" class="form-range" id="energyScale" name="energyScale" min="1" max="10" step="1" value="5" oninput="updateScaleValue(this.value, 'energyScaleValue')">
+        <p class="text-center" id="energyScaleValue">5</p>
+    </div>
+
+    <!-- Sleep Quality -->
+    <div class="mb-3">
+        <label for="sleep" class="form-label">How well have you slept in the past two weeks?</label>
+        <select class="form-select" id="sleep" name="sleep">
+            <option value="good">Good</option>
+            <option value="okay">Okay</option>
+            <option value="bad">Bad</option>
+        </select>
+        <input type="range" class="form-range" id="sleepScale" name="sleepScale" min="1" max="10" step="1" value="5" oninput="updateScaleValue(this.value, 'sleepScaleValue')">
+        <p class="text-center" id="sleepScaleValue">5</p>
+    </div>
+
+    <!-- Appetite and Eating -->
+    <div class="mb-3">
+        <label for="appetite" class="form-label">How would you rate your appetite or eating habits?</label>
+        <select class="form-select" id="appetite" name="appetite">
+            <option value="good">Good</option>
+            <option value="okay">Okay</option>
+            <option value="bad">Bad</option>
+        </select>
+        <input type="range" class="form-range" id="appetiteScale" name="appetiteScale" min="1" max="10" step="1" value="5" oninput="updateScaleValue(this.value, 'appetiteScaleValue')">
+        <p class="text-center" id="appetiteScaleValue">5</p>
+    </div>
+
+    <!-- Self-Worth -->
+    <div class="mb-3">
+        <label for="self_worth" class="form-label">How do you feel about yourself lately?</label>
+        <select class="form-select" id="self_worth" name="self_worth">
+            <option value="good">Good</option>
+            <option value="okay">Okay</option>
+            <option value="bad">Bad</option>
+        </select>
+        <input type="range" class="form-range" id="selfWorthScale" name="selfWorthScale" min="1" max="10" step="1" value="5" oninput="updateScaleValue(this.value, 'selfWorthScaleValue')">
+        <p class="text-center" id="selfWorthScaleValue">5</p>
+    </div>
+
+    <!-- Concentration -->
+    <div class="mb-3">
+        <label for="concentration" class="form-label">How easy has it been for you to concentrate on tasks?</label>
+        <select class="form-select" id="concentration" name="concentration">
+            <option value="good">Good</option>
+            <option value="okay">Okay</option>
+            <option value="bad">Bad</option>
+        </select>
+        <input type="range" class="form-range" id="concentrationScale" name="concentrationScale" min="1" max="10" step="1" value="5" oninput="updateScaleValue(this.value, 'concentrationScaleValue')">
+        <p class="text-center" id="concentrationScaleValue">5</p>
+    </div>
+
+    <!-- Physical Symptoms -->
+    <div class="mb-3">
+        <label for="physical_symptoms" class="form-label">How would you rate any unexplained physical symptoms (like pain or fatigue) you’ve experienced?</label>
+        <select class="form-select" id="physical_symptoms" name="physical_symptoms">
+            <option value="good">Good</option>
+            <option value="okay">Okay</option>
+            <option value="bad">Bad</option>
+        </select>
+        <input type="range" class="form-range" id="physicalSymptomsScale" name="physicalSymptomsScale" min="1" max="10" step="1" value="5" oninput="updateScaleValue(this.value, 'physicalSymptomsScaleValue')">
+        <p class="text-center" id="physicalSymptomsScaleValue">5</p>
+    </div>
+
+    <!-- Social Interaction -->
+    <div class="mb-3">
+        <label for="social_interaction" class="form-label">How comfortable have you felt in social situations?</label>
+        <select class="form-select" id="social_interaction" name="social_interaction">
+            <option value="good">Good</option>
+            <option value="okay">Okay</option>
+            <option value="bad">Bad</option>
+        </select>
+        <input type="range" class="form-range" id="socialInteractionScale" name="socialInteractionScale" min="1" max="10" step="1" value="5" oninput="updateScaleValue(this.value, 'socialInteractionScaleValue')">
+        <p class="text-center" id="socialInteractionScaleValue">5</p>
+    </div>
+
+    <!-- Thoughts of Self-Harm -->
+    <div class="mb-3">
+        <label for="self_harm" class="form-label">On a scale from 1 to 10, how frequently have you had thoughts of self-harm or feeling that you would be better off dead?</label>
+        <select class="form-select" id="self_harm" name="self_harm">
+            <option value="good">Good</option>
+            <option value="okay">Okay</option>
+            <option value="bad">Bad</option>
+        </select>
+        <input type="range" class="form-range" id="selfHarmScale" name="selfHarmScale" min="1" max="10" step="1" value="5" oninput="updateScaleValue(this.value, 'selfHarmScaleValue')">
+        <p class="text-center" id="selfHarmScaleValue">5</p>
+    </div>
+
+    <!-- Daily Functioning -->
+    <div class="mb-3">
+        <label for="daily_functioning" class="form-label">How would you rate your ability to perform daily tasks (like work, school, or home responsibilities)?</label>
+        <select class="form-select" id="daily_functioning" name="daily_functioning">
+            <option value="good">Good</option>
+            <option value="okay">Okay</option>
+            <option value="bad">Bad</option>
+        </select>
+        <input type="range" class="form-range" id="dailyFunctioningScale" name="dailyFunctioningScale" min="1" max="10" step="1" value="5" oninput="updateScaleValue(this.value, 'dailyFunctioningScaleValue')">
+        <p class="text-center" id="dailyFunctioningScaleValue">5</p>
+    </div>
+
+    <!-- Hopefulness -->
+    <div class="mb-3">
+        <label for="hopefulness" class="form-label">On a scale from 1 to 10, how hopeful do you feel about the future?</label>
+        <select class="form-select" id="hopefulness" name="hopefulness">
+            <option value="good">Good</option>
+            <option value="okay">Okay</option>
+            <option value="bad">Bad</option>
+        </select>
+        <input type="range" class="form-range" id="hopefulnessScale" name="hopefulnessScale" min="1" max="10" step="1" value="5" oninput="updateScaleValue(this.value, 'hopefulnessScaleValue')">
+        <p class="text-center" id="hopefulnessScaleValue">5</p>
+    </div>
+
+            <!-- Other questions -->
+            <!-- (Similar blocks for other questions as per your original code) -->
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        function updateScaleValue(value, elementId) {
+            document.getElementById(elementId).innerText = value;
+        }
+    </script>
+</body>
+</html>

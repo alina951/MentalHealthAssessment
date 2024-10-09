@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Results</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container text-center">
+        <h1>Your Results</h1>
+        <p>Your average score is: <strong>{{ score }}</strong></p>
+        <p>{{ recommendation }}</p>
+        <h3>Resources:</h3>
+        <ul>
+            <li><a href="https://www.nami.org/Home" target="_blank">National Alliance on Mental Illness (NAMI)</a></li>
+            <li><a href="https://www.mentalhealth.gov/get-help" target="_blank">MentalHealth.gov</a></li>
+            <li><a href="https://www.suicidepreventionlifeline.org/" target="_blank">National Suicide Prevention Lifeline</a></li>
+        </ul>
+        <a href="/" class="btn btn-secondary">Take the Quiz Again</a>
+    </div>
+</body>
+</html>
